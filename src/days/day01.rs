@@ -29,9 +29,7 @@ fn solve_part2( input : &str ) -> String {
         let crosses = check_zero_crossing(value, dir, steps);
         value = apply_instruction(value, dir, steps);
 
-        zeroes = zeroes + crosses;
-
-        println!("{}", crosses);
+        zeroes += crosses;
     }
 
     zeroes.to_string()
@@ -44,9 +42,11 @@ fn parse_instruction(s: &str) -> (char, i32) {
 }
 
 fn apply_instruction(start: i32, dir: char, steps: i32) -> i32 {
+    const LOCK_SIZE: i32 = 100;
+
     match dir {
-        'R' => (start + steps).rem_euclid(100),
-        'L' => (start - steps).rem_euclid(100),
+        'R' => (start + steps).rem_euclid(LOCK_SIZE),
+        'L' => (start - steps).rem_euclid(LOCK_SIZE),
         _ => panic!("Unknown direction: {}", dir)
     }
 }
