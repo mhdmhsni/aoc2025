@@ -17,7 +17,7 @@ fn solve_part1( input : &str ) -> String {
         }
     }
 
-    (zero_count.to_string())
+    zero_count.to_string()
 }
 
 fn solve_part2( input : &str ) -> String {
