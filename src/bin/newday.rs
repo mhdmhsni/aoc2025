@@ -96,7 +96,7 @@ static TEMPLATE_BIN: &str = r#"use aoc2025::days::DAY;
 use std::fs;
 
 fn main() {
-    let input_path = format!("inputs/DAY.txt");
+    let input_path = "inputs/DAY.txt".to_string();
     let input = fs::read_to_string(&input_path)
         .unwrap_or_else(|_| {
             eprintln!("Failed to read {}", input_path);
