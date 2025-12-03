@@ -86,9 +86,17 @@ fn main() {
 static TEMPLATE_DAY: &str = r#"/// Solve returns (part1, part2) as strings.
 pub fn solve(input: &str) -> (String, String) {
     // TODO: implement
-    let part1 = 0;
-    let part2 = 0;
+    let part1 = solve_part1(input);
+    let part2 = solve_part2(input);
     (part1.to_string(), part2.to_string())
+}
+
+fn solve_part1(input: &str) -> String {
+    String::new()
+}
+
+fn solve_part2(input: &str) -> String {
+    String::new()
 }
 "#;
 
