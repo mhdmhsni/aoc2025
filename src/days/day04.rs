@@ -6,7 +6,7 @@ type Coord = (usize, usize);
 pub fn solve(input: &str) -> (String, String) {
     let part1 = solve_part1(input);
     let part2 = solve_part2(input);
-    (part1.to_string(), part2.to_string())
+    (part1, part2)
 }
 
 fn solve_part1(input: &str) -> String {

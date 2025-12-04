@@ -6,27 +6,34 @@ pub fn solve(input: &str) -> (String, String) {
     (part1, part2)
 }
 
-
 fn solve_part1(input: &str) -> String {
     let ranges = input.split(",");
     let mut result: i64 = 0;
 
     for range in ranges {
         let (from_str, to_str) = range.split_once('-').unwrap();
-        let (from, to) = (from_str.parse::<i64>().unwrap(), to_str.parse::<i64>().unwrap());
+        let (from, to) = (
+            from_str.parse::<i64>().unwrap(),
+            to_str.parse::<i64>().unwrap(),
+        );
 
         for id in from..=to {
             let id_str = id.to_string();
-            if id_str.len() % 2 != 0 { continue } // we don't care about ids with odd length
+            if id_str.len() % 2 != 0 {
+                continue;
+            } // we don't care about ids with odd length
             let (left_str, right_str) = id_str.split_at(id_str.len() / 2); // split from the middle
-            let (left, right) = (left_str.parse::<i64>().unwrap(), right_str.parse::<i64>().unwrap());
+            let (left, right) = (
+                left_str.parse::<i64>().unwrap(),
+                right_str.parse::<i64>().unwrap(),
+            );
             if left == right {
-              result += id;
+                result += id;
             }
         }
     }
 
-   result.to_string()
+    result.to_string()
 }
 
 fn solve_part2(input: &str) -> String {
@@ -36,13 +43,17 @@ fn solve_part2(input: &str) -> String {
     // TODO: this is brute forcing and very slow, find a smarter solution
     for range in ranges {
         let (from_str, to_str) = range.split_once('-').unwrap();
-        let (from, to) = (from_str.parse::<i64>().unwrap(), to_str.parse::<i64>().unwrap());
+        let (from, to) = (
+            from_str.parse::<i64>().unwrap(),
+            to_str.parse::<i64>().unwrap(),
+        );
 
         for id in from..=to {
             let id_str = id.to_string();
             let len = id_str.len();
             let middle = len / 2;
-            for portion in 1..=middle { // we don't need to iterate over the entire string, until the middle is enough
+            for portion in 1..=middle {
+                // we don't need to iterate over the entire string, until the middle is enough
                 let seq = split_by_size(&id_str, portion);
                 if is_all_same(&seq) {
                     result += id;

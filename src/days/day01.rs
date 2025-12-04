@@ -4,7 +4,7 @@ pub fn solve(input: &str) -> (String, String) {
     (part1, part2)
 }
 
-fn solve_part1( input : &str ) -> String {
+fn solve_part1(input: &str) -> String {
     let mut value = 50;
     let mut zero_count = 0;
 
@@ -20,7 +20,7 @@ fn solve_part1( input : &str ) -> String {
     zero_count.to_string()
 }
 
-fn solve_part2( input : &str ) -> String {
+fn solve_part2(input: &str) -> String {
     let mut value = 50;
     let mut zeroes = 0;
 
@@ -47,7 +47,7 @@ fn apply_instruction(start: i32, dir: char, steps: i32) -> i32 {
     match dir {
         'R' => (start + steps).rem_euclid(LOCK_SIZE),
         'L' => (start - steps).rem_euclid(LOCK_SIZE),
-        _ => panic!("Unknown direction: {}", dir)
+        _ => panic!("Unknown direction: {}", dir),
     }
 }
 
@@ -58,14 +58,14 @@ fn check_zero_crossing(start: i32, dir: char, steps: i32) -> i32 {
     let end = match dir {
         'L' => start - steps,
         'R' => start + steps,
-        _ => panic!("Unknown direction: {}", dir)
+        _ => panic!("Unknown direction: {}", dir),
     };
 
     // Count how many times we cross 0
     let zeros = match dir {
         'L' => (start - 1).div_euclid(LOCK_SIZE) - (end - 1).div_euclid(LOCK_SIZE),
         'R' => end.div_euclid(LOCK_SIZE) - start.div_euclid(LOCK_SIZE),
-        _ => panic!("Unknown direction: {}", dir)
+        _ => panic!("Unknown direction: {}", dir),
     };
 
     zeros
