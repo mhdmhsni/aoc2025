@@ -13,7 +13,7 @@ fn solve_part1(input: &str) -> String {
     let mut grand_total: usize = 0;
 
     for line in lines {
-        // I need a matrix here
+        // TODO: matrix here as well??! (?
         let rows: Vec<&str> = line.split(" ").filter(|s| !s.is_empty()).collect();
 
         for (i, col) in rows.iter().enumerate() {
