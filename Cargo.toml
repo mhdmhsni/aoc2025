@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 # add crates as you like, e.g. itertools = "0.10"
+regex = "1.12.2"
 
 [dev-dependencies]
 criterion = "0.5"

@@ -9,14 +9,7 @@ pub fn solve(input: &str) -> (String, String) {
 }
 
 fn solve_part1(input: &str) -> String {
-    let lines: Vec<&str> = input.lines().collect();
-    let mut points: Vec<(usize, usize)> = Vec::new();
-    for line in lines {
-        let (a, b) = line.split_once(",").unwrap();
-        let x: usize = a.parse().unwrap();
-        let y: usize = b.parse().unwrap();
-        points.push((x, y));
-    }
+    let points = parse_input(input);
 
     let sorted_points = {
         let mut sp = points.clone();
@@ -40,7 +33,27 @@ fn solve_part1(input: &str) -> String {
 }
 
 fn solve_part2(input: &str) -> String {
-    String::new()
+    let points = parse_input(input);
+    let sorted_by_both: Vec<(usize, usize)> = {
+        let mut sp = points.clone();
+        sp.sort_by(|a, b| a.0.cmp(&b.0).then(b.1.cmp(&b.0)));
+        sp
+    };
+    println!("Points sorted by both: {:?}", sorted_by_both);
+
+    String::from("Not implemented")
+}
+
+fn parse_input(input: &str) -> Vec<(usize, usize)> {
+    input
+        .lines()
+        .map(|line| {
+            let mut parts = line.split(',');
+            let x = parts.next().unwrap().trim().parse::<usize>().unwrap();
+            let y = parts.next().unwrap().trim().parse::<usize>().unwrap();
+            (x, y)
+        })
+        .collect()
 }
 
 fn calculate_rectangular_area(
