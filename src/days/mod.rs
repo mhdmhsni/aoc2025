@@ -10,6 +10,7 @@ pub fn all_days() -> Vec<(&'static str, fn(&str) -> (String, String))> {
         ("day08", day08::solve as fn(&str) -> (String, String)),
         ("day09", day09::solve as fn(&str) -> (String, String)),
         ("day10", day10::solve as fn(&str) -> (String, String)),
+        ("day11", day11::solve as fn(&str) -> (String, String)),
     ]
 }
 
@@ -23,3 +24,4 @@ pub mod day07;
 pub mod day08;
 pub mod day09;
 pub mod day10;
+pub mod day11;
