@@ -33,15 +33,7 @@ fn solve_part1(input: &str) -> String {
 }
 
 fn solve_part2(input: &str) -> String {
-    let points = parse_input(input);
-    let sorted_by_both: Vec<(usize, usize)> = {
-        let mut sp = points.clone();
-        sp.sort_by(|a, b| a.0.cmp(&b.0).then(b.1.cmp(&b.0)));
-        sp
-    };
-    println!("Points sorted by both: {:?}", sorted_by_both);
-
-    String::from("Not implemented")
+    String::from("Not implemented!")
 }
 
 fn parse_input(input: &str) -> Vec<(usize, usize)> {
